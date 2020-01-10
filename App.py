@@ -5,6 +5,12 @@ import os
 root=tk.Tk()
 apps=[]
 
+if os.path.isfile('save.txt'):
+    with open('save.txt','r') as f:
+        tempApps = f.read()
+        tempApps = tempApps.split(',')
+        apps = [x for x in tempApps if x.strip()]
+
 def addApp():
     for widget in frame.winfo_children():
         widget.destroy()
@@ -34,6 +40,8 @@ openFile.pack()
 runApps=tk.Button(root,text="Run the Applications",padx=288,pady=5,bg="#B8B23B",command=runApps)
 runApps.pack()
 
-root.update()
-
 root.mainloop()
+
+with open('save.txt','w') as f:
+    for app in apps:
+        f.write(app+',')
