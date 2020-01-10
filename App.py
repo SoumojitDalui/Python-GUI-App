@@ -15,10 +15,10 @@ def addApp():
     for widget in frame.winfo_children():
         widget.destroy()
 
-    fileName=filedialog.askopenfile(initialdir="/Applications",title="Select File",filetypes=(("app","*.app"),("all files","*.*"))
+    #filename=filedialog.askopenfile(initialdir="/Applications",title="Select File",filetypes=(("app","*.app"),("all files","*.*"))
 
-    apps.append(fileName)
-    print(fileName)
+    apps.append(filename)
+    print(filename)
 
     for app in apps:
         label=tk.Label(frame,Text=app)
